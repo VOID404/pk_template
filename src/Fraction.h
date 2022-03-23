@@ -40,4 +40,4 @@ public:
 
 } // namespace lab01
 
-#endif /* FRACTION_H */
+#endif

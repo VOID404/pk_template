@@ -8,7 +8,8 @@ include_directories("libs/")
 add_library(ut "libs/ut.hpp")
 set_target_properties(ut PROPERTIES LINKER_LANGUAGE CXX)
 
-add_library(fraction "src/Fraction.cpp")
+add_library(lab01 "src/Fraction.cpp" "src/Circle.cpp"
+                  "src/Point.cpp" "src/DynamicArray.cpp")
 
 add_executable(tests "src/tests.cpp")
-target_link_libraries(tests fraction ut)
+target_link_libraries(tests lab01 ut)
