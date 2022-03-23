@@ -1,18 +1,24 @@
 #ifndef FRACTION_H
 #define FRACTION_H
 
+#include <compare>
 #include <iostream>
+#include <stdexcept>
 
 namespace lab01 {
 
 class Fraction {
+  static int count;
+  int nth_;
+
   int numerator, denominator;
 
-public:
-  // Those are required for tests
-  bool operator==(Fraction const &other) const;
-  friend std::ostream &operator<<(std::ostream &os, const Fraction &f);
+  Fraction operator*(Fraction const &other) const;
+  Fraction operator/(Fraction const &other) const;
+  Fraction operator+(Fraction const &other) const;
+  Fraction operator-(Fraction const &other) const;
 
+public:
   int nth() const;
 
   Fraction mul(Fraction const &other) const;
@@ -21,6 +27,10 @@ public:
   Fraction sub(Fraction const &other) const;
   Fraction inverse() const;
 
+  std::weak_ordering operator<=>(Fraction const &other) const;
+  bool operator==(Fraction const &other) const;
+
+  friend std::ostream &operator<<(std::ostream &os, const Fraction &f);
   std::ostream &out(std::ostream &os) const;
 
   Fraction(int numerator = 1, int denominator = 1);
