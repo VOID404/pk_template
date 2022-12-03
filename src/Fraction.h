@@ -13,12 +13,12 @@ class Fraction {
 
   int numerator, denominator;
 
+public:
   Fraction operator*(Fraction const &other) const;
   Fraction operator/(Fraction const &other) const;
   Fraction operator+(Fraction const &other) const;
   Fraction operator-(Fraction const &other) const;
 
-public:
   int nth() const;
 
   Fraction mul(Fraction const &other) const;

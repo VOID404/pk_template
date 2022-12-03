@@ -47,17 +47,17 @@ void test_fractions() {
       {
         Fraction a(1, 5);
         Fraction b(1, 5);
-        expect(that % a.add(b) == Fraction(2, 5));
+        expect(that % (a + b) == Fraction(2, 5));
       }
       {
         Fraction a(1, 3);
         Fraction b(2, 3);
-        expect(that % a.add(b) == Fraction(1, 1));
+        expect(that % (a + b) == Fraction(1, 1));
       }
       {
         Fraction a(1, 3);
         Fraction b(2, 7);
-        expect(that % a.add(b) == Fraction(13, 21));
+        expect(that % (a + b) == Fraction(13, 21));
       }
     };
 
@@ -65,33 +65,33 @@ void test_fractions() {
       {
         Fraction a(4, 5);
         Fraction b(1, 5);
-        expect(that % a.sub(b) == Fraction(3, 5));
+        expect(that % (a - b) == Fraction(3, 5));
       }
       {
         Fraction a(1, 1);
         Fraction b(2, 3);
-        expect(that % a.sub(b) == Fraction(1, 3));
+        expect(that % (a - b) == Fraction(1, 3));
       }
       {
         Fraction a(1, 3);
         Fraction b(2, 7);
-        expect(that % a.sub(b) == Fraction(1, 21));
+        expect(that % (a - b) == Fraction(1, 21));
       }
     };
 
     it("can be multiplied") = [] {
       {
-        Fraction actual = Fraction(1, 2).mul(Fraction(2, 1));
+        Fraction actual = Fraction(1, 2) * Fraction(2, 1);
         Fraction expected(1, 1);
         expect(that % actual == expected);
       }
       {
-        Fraction actual = Fraction(12, 32).mul(Fraction(31, 11));
+        Fraction actual = Fraction(12, 32) * Fraction(31, 11);
         Fraction expected(12 * 31, 32 * 11);
         expect(that % actual == expected);
       }
       {
-        Fraction actual = Fraction(1, 5).mul(Fraction(0, 1));
+        Fraction actual = Fraction(1, 5) * Fraction(0, 1);
         Fraction expected(0, 1);
         expect(that % actual == expected);
       };
@@ -105,17 +105,17 @@ void test_fractions() {
 
     it("can be divided") = [] {
       {
-        Fraction actual = Fraction(1, 3).div(Fraction(5, 7));
+        Fraction actual = Fraction(1, 3) / Fraction(5, 7);
         Fraction expected(7, 15);
         expect(that % actual == expected);
       }
       {
-        Fraction actual = Fraction(7, 3).div(Fraction(3, 7));
+        Fraction actual = Fraction(7, 3) / Fraction(3, 7);
         Fraction expected(49, 9);
         expect(that % actual == expected);
       }
       {
-        Fraction actual = Fraction(1, 17).div(Fraction(1, 17));
+        Fraction actual = Fraction(1, 17) / Fraction(1, 17);
         Fraction expected(1, 1);
         expect(that % actual == expected);
       };
