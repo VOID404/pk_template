@@ -26,7 +26,7 @@ void test_tekst() {
       expect(txt1 == txt2);
       expect(txt1 != txt3);
       expect(that % txt1.len() == expected.length());
-      expect(txt1.as_str().compare(expected) == 0);
+      expect(that % txt1.as_str() == expected);
     };
 
     it("Combines correctly") = [] {
@@ -37,7 +37,7 @@ void test_tekst() {
       Tekst txt1(a.c_str());
       Tekst txt2(b.c_str());
       Tekst tcomb = txt1 + txt2;
-      expect(tcomb.as_str().compare(comb) == 0);
+      expect(that % tcomb.as_str() == comb);
     };
 
     it("Substring correctly") = [] {
@@ -45,9 +45,9 @@ void test_tekst() {
       string b = "ello";
 
       Tekst txt1(a.c_str());
-      auto txt2 = txt1(1, 4);
+      auto txt2 = txt1(1, 5);
 
-      expect(txt2.as_str() == b) << txt2.as_str();
+      expect(that % txt2.as_str() == b);
     };
 
     it("Reverses correctly") = [] {
@@ -56,8 +56,8 @@ void test_tekst() {
 
       Tekst txt1(a.c_str());
       Tekst txt2 = -txt1;
-      expect(that % txt1.len() == txt2.len()) << txt2.as_str();
       expect(that % txt2.as_str() == b);
+      expect(that % txt1.len() == txt2.len());
     };
   };
 }

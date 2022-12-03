@@ -7,9 +7,12 @@
 using namespace lab0201;
 
 Tekst::Tekst(const char *data)
-    : _len(strlen(data)), data((char *)malloc(strlen(data))) {
+    : _len(strlen(data)), data((char *)malloc(strlen(data) + 1)) {
   strcpy(this->data, data);
+  this->data[this->_len] = 0;
 }
+
+Tekst::Tekst(char *data) : _len(strlen(data)), data(data) {}
 
 Tekst::Tekst(const Tekst &other) : Tekst(other.data) {}
 
@@ -22,8 +25,8 @@ bool Tekst::operator==(const Tekst &other) const {
 Tekst Tekst::operator()(unsigned int s, unsigned int e) const {
   int len = e - s;
   char *out = (char *)malloc(len + 1);
-  strncpy(out, this->data + s, len + 1);
-  out[len + 1] = 0;
+  strncpy(out, this->data + s, len);
+  out[len] = 0;
   return Tekst(out);
 }
 
@@ -33,7 +36,6 @@ Tekst Tekst::operator+(const Tekst &other) const {
   strcpy(out, this->data);
   strcpy(out + this->_len, other.data);
   out[len] = 0;
-
   return Tekst(out);
 }
 

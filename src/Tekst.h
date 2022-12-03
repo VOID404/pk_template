@@ -15,6 +15,7 @@ private:
 
 public:
   Tekst(const char *data = nullptr);
+  Tekst(char *data = nullptr);
   Tekst(const Tekst &other);
   ~Tekst();
 
