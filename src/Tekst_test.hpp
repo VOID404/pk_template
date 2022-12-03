@@ -40,6 +40,16 @@ void test_tekst() {
       expect(tcomb.as_str().compare(comb) == 0);
     };
 
+    it("Substring correctly") = [] {
+      string a = "Hello World!";
+      string b = "ello";
+
+      Tekst txt1(a.c_str());
+      auto txt2 = txt1(1, 4);
+
+      expect(txt2.as_str() == b) << txt2.as_str();
+    };
+
     it("Reverses correctly") = [] {
       string a = "abc";
       string b = "cba";

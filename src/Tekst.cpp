@@ -1,5 +1,6 @@
 #include "Tekst.h"
 #include <cstdlib>
+#include <stdio.h>
 #include <string.h>
 #include <string>
 
@@ -16,6 +17,13 @@ Tekst::~Tekst() { delete[] this->data; }
 
 bool Tekst::operator==(const Tekst &other) const {
   return strcmp(this->data, other.data) == 0;
+}
+
+Tekst Tekst::operator()(unsigned int s, unsigned int e) const {
+  char *out = (char *)malloc(e - s + 1);
+  strncpy(out, this->data + s, e - s + 1);
+  out[e - s + 1] = 0;
+  return Tekst(out);
 }
 
 Tekst Tekst::operator+(const Tekst &other) const {
