@@ -125,4 +125,4 @@ void test_fractions() {
   };
 }
 
-#endif FRACTION_H
+#endif /* FRACTION_TEST_H */
