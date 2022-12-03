@@ -20,21 +20,25 @@ bool Tekst::operator==(const Tekst &other) const {
 }
 
 Tekst Tekst::operator()(unsigned int s, unsigned int e) const {
-  char *out = (char *)malloc(e - s + 1);
-  strncpy(out, this->data + s, e - s + 1);
-  out[e - s + 1] = 0;
+  int len = e - s;
+  char *out = (char *)malloc(len + 1);
+  strncpy(out, this->data + s, len + 1);
+  out[len + 1] = 0;
   return Tekst(out);
 }
 
 Tekst Tekst::operator+(const Tekst &other) const {
-  char *out = (char *)malloc(this->_len + other._len);
+  int len = this->_len + other._len;
+  char *out = (char *)malloc(len + 1);
   strcpy(out, this->data);
   strcpy(out + this->_len, other.data);
+  out[len] = 0;
+
   return Tekst(out);
 }
 
 Tekst Tekst::operator-() const {
-  char *out = (char *)malloc(this->_len);
+  char *out = (char *)malloc(this->_len + 1);
   for (auto i = 0; i < this->_len; ++i) {
     int i2 = this->_len - 1 - i;
     out[i] = this->data[i2];
