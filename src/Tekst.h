@@ -1,9 +1,6 @@
 #ifndef TEKST_H
 #define TEKST_H
 
-#include <compare>
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace lab0201 {

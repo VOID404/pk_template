@@ -1,8 +1,5 @@
 #include "Fraction.h"
-#include <compare>
 #include <numeric>
-#include <ostream>
-#include <stdexcept>
 
 using namespace lab01;
 

@@ -1,9 +1,7 @@
 #ifndef FRACTION_H
 #define FRACTION_H
 
-#include <compare>
 #include <iostream>
-#include <stdexcept>
 
 namespace lab01 {
 
