@@ -16,5 +16,7 @@ add_library(punkt "src/Punkt.cpp")
 add_library(okrag "src/Okrag.cpp")
 target_link_libraries(okrag punkt)
 
+add_library(set "src/Set.cpp")
+
 add_executable(tests "src/tests.cpp")
 target_link_libraries(tests fraction tekst ut)
