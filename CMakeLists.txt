@@ -13,6 +13,8 @@ set_target_properties(ut PROPERTIES LINKER_LANGUAGE CXX)
 add_library(fraction "src/Fraction.cpp")
 add_library(tekst "src/Tekst.cpp")
 add_library(punkt "src/Punkt.cpp")
+add_library(okrag "src/Okrag.cpp")
+target_link_libraries(okrag punkt)
 
 add_executable(tests "src/tests.cpp")
 target_link_libraries(tests fraction tekst ut)
